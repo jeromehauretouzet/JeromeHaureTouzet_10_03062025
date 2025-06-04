@@ -1,40 +1,7 @@
-html {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import './variables';
+@import './base';
 
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main {
-  flex: 1;
-}
-
-.bg-dark {
-  background-color: #12002b;
-}
-
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
-}
-
+// --- Navigation ---
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -44,11 +11,11 @@ body {
 
 .main-nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: $color-text-primary;
 }
 
 .main-nav a.router-link-exact-active {
-  color: #42b983;
+  color: $color-active-link;
 }
 
 .main-nav-item {
@@ -70,8 +37,9 @@ body {
   width: 200px;
 }
 
+// --- Section Hero (Bannière principale) ---
 .hero {
-  background-image: url('../img/bank-tree.jpeg');
+  background-image: url('../assets/img/bank-tree.jpeg');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -83,7 +51,7 @@ body {
   position: relative;
   top: 2rem;
   width: 200px;
-  background: white;
+  background: $color-background-light;
   padding: 2rem;
   text-align: left;
   margin: 0 auto;
@@ -100,7 +68,8 @@ body {
   font-size: 0.9rem;
 }
 
-@media (min-width: 920px) {
+// --- Styles responsives desktop ---
+@media (min-width: $breakpoint-desktop) {
   .hero {
     height: 400px;
     background-position: 0% 33%;
@@ -123,12 +92,14 @@ body {
   }
 }
 
+// --- Section Features ---
 .features {
   display: flex;
   flex-direction: column;
 }
 
-@media (min-width: 920px) {
+// --- Styles responsives desktop ---
+@media (min-width: $breakpoint-desktop) {
   .features {
     flex-direction: row;
   }
@@ -136,7 +107,7 @@ body {
 
 .feature-icon {
   width: 100px;
-  border: 10px solid #00bc77;
+  border: 10px solid $color-primary;
   border-radius: 50%;
   padding: 1rem;
 }
@@ -147,12 +118,13 @@ body {
 }
 
 .feature-item-title {
-  color: #222;
+  color: $color-text-secondary;
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
+// --- Bouton de Connexion (Page d'accueil) ---
 .sign-in-button {
   display: block;
   width: 100%;
@@ -160,14 +132,15 @@ body {
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
+  border-color: $color-primary;
+  background-color: $color-primary;
+  color: $color-text-light;
 }
 
+// --- Contenu de la Page de Connexion --
 .sign-in-content {
   box-sizing: border-box;
-  background-color: white;
+  background-color: $color-background-light;
   width: 300px;
   margin: 0 auto;
   margin-top: 3rem;
@@ -178,6 +151,7 @@ body {
   font-size: 5rem;
 }
 
+// --- Formulaire ---
 .input-remember {
   display: flex;
 }
@@ -202,10 +176,11 @@ body {
   font-size: 1.2rem;
 }
 
+// --- Pied de page ---
 .footer {
   display: flex;
   justify-content: center;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid $color-border-light;
   padding: 2rem 0 1.5rem;
 }
 
@@ -214,12 +189,13 @@ body {
   padding: 0;
 }
 
+// --- Section Compte (Page Profil Utilisateur) ---
 .account {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  background-color: #fff;
+  border: 1px solid $color-border-dark;
+  background-color: $color-background-light;
   width: 80%;
   margin: 0 auto;
   flex-direction: column;
@@ -251,19 +227,22 @@ body {
   flex: 1;
 }
 
+// --- Bouton d'Édition (Page Profil Utilisateur) ---
 .edit-button {
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
+  border-color: $color-primary;
+  background-color: $color-primary;
+  color: $color-text-light;
   font-weight: bold;
   padding: 10px;
 }
 
+// --- En-tête (Page Profil Utilisateur) ---
 .header {
-  color: #fff;
+  color: $color-text-light;
   margin-bottom: 2rem;
 }
 
+// --- Bouton de Transaction (Page Profil Utilisateur) ---
 .transaction-button {
   display: block;
   width: 100%;
@@ -271,12 +250,13 @@ body {
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
+  border-color: $color-primary;
+  background-color: $color-primary;
+  color: $color-text-light;
 }
 
-@media (min-width: 720px) {
+// --- Styles responsives mobile ---
+@media (min-width: $breakpoint-mobile) {
   .account {
     flex-direction: row;
   }
