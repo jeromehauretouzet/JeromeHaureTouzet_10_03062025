@@ -10,7 +10,7 @@ function MainContainer() {
       {/* --- Header --- */}
       <Header />
 
-      {/* --- Main-content --- */}
+      {/* --- Main --- */}
       <main className="main-content">
         {/* On insère ici les pages (Home, SignIn, UserProfile, Error404). */}
         <Outlet />

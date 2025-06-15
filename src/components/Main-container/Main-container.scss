@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+// --- main-container ---
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+// --- main-content --- (Home, SignIn, UserProfile, Error404)
+.main-content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  align-items: center;
+}

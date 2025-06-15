@@ -6,7 +6,7 @@ import homeCardsData from '../data/homeCards.json';
 
 const Home = () => {
   return (
-    <>
+    <div className="main">
       <div className="hero">
         <section className="hero-content">
           <h2 className="sr-only">Promoted Content</h2>
@@ -27,7 +27,7 @@ const Home = () => {
           />
         ))}
       </section>
-    </>
+    </div>
   );
 };
 

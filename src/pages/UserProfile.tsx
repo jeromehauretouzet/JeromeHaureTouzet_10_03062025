@@ -1,3 +1,7 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+
 // --- Les composants ---
 import Account from '../components/Account/Account';
 
@@ -5,6 +9,12 @@ import Account from '../components/Account/Account';
 import userAccountsData from '../data/userAccounts.json';
 
 const UserProfile = () => {
+
+  const isAuthenticated = useSelector((state: any) => state.auth.isAuthenticated);
+    if (!isAuthenticated) {                                                           // --- Redirection vers la page de connection ---
+    return <Navigate to="/sign-in" replace />;
+  }
+
   return (
     <div className="main bg-dark">
       <div className="header">

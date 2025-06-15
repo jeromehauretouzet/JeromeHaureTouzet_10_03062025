@@ -4,7 +4,13 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import './styles/main.scss';
 import AppRouter from './router/AppRouter.tsx';
+import { loginSuccess } from './store/features/auth/authSlice';
 
+
+const token = localStorage.getItem('authToken');                       // --- Vérifier le token au chargement de l'application ---
+if (token) {
+  store.dispatch(loginSuccess({ token: token }));
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
