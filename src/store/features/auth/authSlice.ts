@@ -40,10 +40,15 @@ const authSlice = createSlice({
       state.error = action.payload.error;                       // --- Erreur d'authentification
     },
 
-    logout(state) {                                             // --- Reducer: Déconnexion
+    logout(state, action) {                                     // --- Reducer: Déconnexion
       state.isAuthenticated = false;                            // --- L'utilisateur n'est plus authentifié
       state.token = null;                                       // --- On efface le token
-      state.error = null;                                       // --- On efface les erreurs possibles
+
+      if (action.payload && typeof action.payload.errorMessage === 'string') {
+        state.error = action.payload.errorMessage;              // --- On récupère le message d'erreur (lors d'un échec de chargement du profil)
+      } else {
+        state.error = null;
+      }
 
       localStorage.removeItem('authToken');                     // --- Supprimer le token du localStorage
     }

@@ -7,10 +7,10 @@ import AppRouter from './router/AppRouter.tsx';
 import { loginSuccess } from './store/features/auth/authSlice';
 
 
-const token = localStorage.getItem('authToken');                       // --- Vérifier le token au chargement de l'application ---
+const token = localStorage.getItem('authToken');                          // --- Vérifier le token au chargement de l'application ---
 if (token) {
-  store.dispatch(loginSuccess({ token: token }));
-}
+  store.dispatch(loginSuccess({ token: token, rememberMe: true }));       // --- MAJ du store: l'utilisateur est connecté
+}                                                                         // --- la connexion doit persister
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
       <AppRouter />
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
 
 /*
