@@ -24,7 +24,7 @@ const SignIn = () => {
     }
   }, [isAuthenticated]);
 
-  // --- Gestionnaire de soumission du formulaire ---
+  // --- Gestionnaire d'évènement : Sign In ---
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -36,7 +36,7 @@ const SignIn = () => {
           password
         }
       );
-                                                 
+
       const token = response.data.body.token;                                       // --- On récupère le token
       dispatch(loginSuccess({ token, rememberMe }));                                // MAJ du store  (token et l'option "Remember me")
 

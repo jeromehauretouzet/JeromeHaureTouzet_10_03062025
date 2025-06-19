@@ -37,12 +37,35 @@ const userProfileSlice = createSlice({
     getProfileFailure(state, action) {
       state.profile = null;                                                     // --- Pas de profil ---
       state.error = action.payload.error;                                       // --- Erreur d'accès au profil utilisateur---
+    },
+
+    updateUsernameSuccess(state, action) {
+      if (state.profile) {
+        state.profile.userName = action.payload.userName;                       // --- Mettre à jour le pseudo ---
+      }
+      state.error = null;
+    },
+
+    updateUsernameFailure(state, action) {
+      state.error = action.payload.error;                                       // --- Erreur lors de la mise à jour ---
+    },
+
+    clearUserProfile(state) {                                                   // --- Effacer le profil (utile au logout) ---
+        state.profile = null;
+        state.error = null;
+    },
+
+    clearProfileError(state) {                                                 // --- Effacer l'erreur (utile lors d'un cancel) ---
+      state.error = null;
     }
   }
 });
 
 // --- Exporter les actions de notre slice profil utilisateur
-export const { getProfileSuccess, getProfileFailure } = userProfileSlice.actions;
+export const { 
+  getProfileSuccess, getProfileFailure,
+  updateUsernameSuccess, updateUsernameFailure, clearUserProfile, clearProfileError
+} = userProfileSlice.actions;
 
 // Exporter le reducer pour notre store
 export default userProfileSlice.reducer;

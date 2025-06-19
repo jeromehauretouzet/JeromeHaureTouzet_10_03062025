@@ -196,6 +196,74 @@
 }
 
 // --- Section Compte (Page Profil Utilisateur) ---
+
+// --- Formulaire d'édition ---
+.section-edit-user-info {
+  background-color: $color-background-light;
+  padding: 25px;
+  margin: 2rem auto;
+  max-width: 360px;
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .edit-form {
+    .edit-form-input-wrapper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+
+      label {
+        width: 100px;
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        padding: 8px 10px;
+        font-size: 0.9rem;
+        border: 1px solid $color-border-grey;
+        border-radius: 3px;
+        height: 38px;
+        box-sizing: border-box;
+
+        &:disabled {
+          background-color: $color-background-grey;
+          color: $color-text-grey;
+          border-color: $color-border-grey-light;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .edit-form-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-left: 110px;
+
+      .edit-form-button {
+        background-color: $color-primary;
+        color: $color-text-light;
+        border: none;
+        padding: 10px 0;
+        font-size: 0.95rem;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 110px;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}
+
 .account {
   display: flex;
   justify-content: space-between;
