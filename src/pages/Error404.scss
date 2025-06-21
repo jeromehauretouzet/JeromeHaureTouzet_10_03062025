@@ -1,5 +1,4 @@
-$primary-color: #2c3e50;
-$link-hover-color: #00bc77;
+@import '../styles/variables.scss';
 
 .error404-page {
   display: flex;
@@ -7,7 +6,7 @@ $link-hover-color: #00bc77;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: $primary-color;
+  color: $color-text-primary;
   padding: 40px 20px;
   margin-bottom: 200px;
   flex: 1;
@@ -19,7 +18,7 @@ $link-hover-color: #00bc77;
     margin-top: 12rem;
     margin-bottom: 2rem;
     line-height: 1;
-    color: $primary-color;
+    color: $color-text-primary;
   }
 
   // --- Message d'erreur ---
@@ -31,14 +30,14 @@ $link-hover-color: #00bc77;
 
   // --- Lien retour page d'Accueil ---
   a {
-    color: $primary-color;
+    color: $color-text-primary;
     font-size: 18px;
     font-weight: 500;
     text-decoration: underline;
     cursor: pointer;
 
     &:hover {
-      color: $link-hover-color;
+      color: $color-primary;
       text-decoration: none;
     }
   }

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 // --- State Authentification ---
 type AuthState = {
@@ -39,8 +39,8 @@ const authSlice = createSlice({
       state.token = null;                                       // --- Pas de token
       state.error = action.payload.error;                       // --- Erreur d'authentification
     },
-
-    logout(state, action) {                                     // --- Reducer: Déconnexion
+                                                                // --- Reducer: Déconnexion
+    logout(state, action: PayloadAction<{ errorMessage?: string } | undefined>) {
       state.isAuthenticated = false;                            // --- L'utilisateur n'est plus authentifié
       state.token = null;                                       // --- On efface le token
 
