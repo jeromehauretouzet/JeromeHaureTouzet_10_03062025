@@ -7,7 +7,12 @@ import AppRouter from './router/AppRouter.tsx';
 import { loginSuccess } from './store/features/auth/authSlice';
 
 
-const token = localStorage.getItem('authToken');                          // --- Vérifier le token au chargement de l'application ---
+let token = localStorage.getItem('authToken');                          // --- Vérifier le token au chargement de l'application ---
+
+if (!token) {
+  token = sessionStorage.getItem('authToken');
+}
+
 if (token) {
   store.dispatch(loginSuccess({ token: token, rememberMe: true }));       // --- MAJ du store: l'utilisateur est connecté
 }                                                                         // --- la connexion doit persister

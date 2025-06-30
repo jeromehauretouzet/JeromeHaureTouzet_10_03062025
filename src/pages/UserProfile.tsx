@@ -28,6 +28,7 @@ const UserProfile = () => {
   // --- Hook useState : Gérer l'état en local
   const [isEditing, setIsEditing]       = useState(false);                            // --- Afficher formulaire d'édition par défaut (non) ---
   const [editUserName, setEditUserName] = useState('');                               // --- Edition du userName ---
+  const [editError, setEditError] = useState('');                                     // --- État pour l'erreur de validation ---
 
   // --- Hook useEffect : Lancer des actions après le rendu
   useEffect(() => {
@@ -86,6 +87,13 @@ const UserProfile = () => {
   const handleSave = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();                                                           // --- Empêcher le rechargement de la page ---
 
+    // --- AJOUT DE LA VALIDATION ---
+    if (!editUserName.trim()) {                                                       // --- .trim() enlève les espaces avant et après ---
+      setEditError('username cannot be empty');
+      return;
+    }
+
+    setEditError('');                                                                  // --- On efface l'erreur si la validation passe ---
     try {
       const response = await axios.put(                                               // --- Appel API PUT pour mettre à jour le userName ---
         'http://localhost:3001/api/v1/user/profile',
@@ -118,6 +126,12 @@ const UserProfile = () => {
         <h2>Edit user info</h2>
 
         {/* Message d'erreur  */}
+        {editError && (
+          <p className="error-message">
+            {editError}
+          </p>
+        )}
+
         {profileError && (
           <p className="error-message">
             {profileError}

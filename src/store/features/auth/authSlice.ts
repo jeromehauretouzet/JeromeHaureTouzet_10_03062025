@@ -27,8 +27,10 @@ const authSlice = createSlice({
       state.error = null;                                       // --- On efface les erreurs possibles
 
       if (action.payload.rememberMe && state.token) {           // --- Sauvegarder le token dans localstorage uniquement si remember me ---
-        localStorage.setItem('authToken', state.token);         
-      } else {
+        localStorage.setItem('authToken', state.token);
+        sessionStorage.removeItem('authToken');
+      } else if (state.token) {
+        sessionStorage.setItem('authToken', state.token);       // --- Sauvegarder le token dans sessionStorage
         localStorage.removeItem('authToken');
       }
 
